@@ -7,6 +7,8 @@
   imports = [
   ./modules/desktop/hyprland.nix
   ./modules/desktop/waybar.nix
+  ./modules/desktop/rofi.nix
+  ./modules/desktop/mako.nix
   ];
 
   home.username = "pentester";

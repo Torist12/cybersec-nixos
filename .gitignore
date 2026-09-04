@@ -1,0 +1,13 @@
+# Hardware-specific — never commit, regenerate per install
+hardware-configuration.nix
+
+# Nix build artifacts
+result
+result-*
+
+# Editor
+.vscode/
+*.swp
+
+# OS junk
+.DS_Store
