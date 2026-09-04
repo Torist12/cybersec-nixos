@@ -6,6 +6,7 @@
 
   imports = [
   ./modules/desktop/hyprland.nix
+  ./modules/desktop/waybar.nix
   ];
 
   home.username = "pentester";
