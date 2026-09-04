@@ -1,6 +1,13 @@
+
+
 { config, pkgs, hyprland, ... }:
 
 {
+
+  imports = [
+  ./modules/desktop/hyprland.nix
+  ];
+
   home.username = "pentester";
   home.homeDirectory = "/home/pentester";
   home.stateVersion = "24.11";
@@ -193,23 +200,23 @@
   # ================================
   # STARSHIP
   # ================================
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      format = "[](fg:#A6E3A1) [$directory](fg:#A6E3A1)$git_branch [$character]($style)";
-      directory = {
-        format = "$path";
-        truncation_length = 2;
-        truncation_symbol = "…/";
-      };
-      git_branch.format = " [ $branch](fg:#F9E2AF)";
-      character = {
-        success_symbol = "[❯](fg:#A6E3A1)";
-        error_symbol = "[❯](fg:red)";
-      };
+programs.starship = {
+  enable = true;
+  settings = {
+    add_newline = false;
+    format = "[](fg:#FF2079) [$directory](fg:#00F0FF)$git_branch [$character]($style)";
+    directory = {
+      format = "$path";
+      truncation_length = 2;
+      truncation_symbol = "…/";
+    };
+    git_branch.format = " [ $branch](fg:#F9E900)";
+    character = {
+      success_symbol = "[❯](fg:#39FF14)";
+      error_symbol = "[❯](fg:red)";
     };
   };
+};
 
   # ================================
   # KITTY
@@ -221,6 +228,9 @@
       font_size = 12;
     };
   };
+
+  programs.fastfetch.enable = true;
+  xdg.configFile."fastfetch/config.jsonc".source = ./fastfetch.jsonc;
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
